@@ -11320,3 +11320,61 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+.gallery-image {
+  width: 100%;
+  height: 200px; /* Set a fixed height */
+  object-fit: cover; /* Ensures images maintain their aspect ratio while filling the container */
+  border-radius: 8px; /* Optional: to maintain rounded corners */
+}
+
+ /* Remove default outline on link (for accessibility, but it can be customized) */
+ .navbar-brand-custom:focus, .navbar-brand-custom:active {
+  outline: none;
+}
+
+/* Remove the underline for the link */
+.navbar-brand-custom {
+  color: white;     /* White text color for the navbar brand */
+  font-size: 18px;  /* Default font size for larger screens */
+  display: inline-flex;
+  align-items: center;  /* Align logo and text vertically */
+  text-decoration: none;  /* Remove the underline */
+}
+
+/* Unique styles for the navbar logo */
+.navbar-logo-custom {
+  height: 1.5em; /* Make the logo height relative to the text size */
+  margin-bottom: 0;  /* Remove bottom margin */
+  margin-right: 10px; /* Space between logo and text */
+  max-width: 100%; /* Ensure logo doesn't exceed container width */
+  width: auto; /* Maintain aspect ratio */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .navbar-logo-custom {
+      height: 1.2em;  /* Resize logo to be a bit smaller on mobile */
+  }
+
+  .navbar-brand-custom {
+      font-size: 14px;   /* Reduce font size on mobile */
+      display: inline-flex;
+      align-items: center;  /* Align logo and text vertically */
+  }
+
+  .navbar-brand-custom img {
+      margin-right: 5px; /* Reduce space between logo and text */
+  }
+}
+
+/* Optional: Adjustments for larger screens */
+@media (min-width: 768px) {
+  .navbar-logo-custom {
+      height: 1.5em;  /* Keep the logo height relative to text size */
+  }
+
+  .navbar-brand-custom {
+      font-size: 18px;  /* Larger font for desktop */
+  }
+}
