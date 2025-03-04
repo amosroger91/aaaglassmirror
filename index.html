@@ -48,8 +48,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -155,6 +155,28 @@
             /* Ensures the image fills the space without distortion */
         }
     </style>
+    <!-- Best in River Valley Banner -->
+    <section class="py-4 text-white text-center"
+        style="background-color: #8D0000; padding: 50px; height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="container">
+            <h3 class="mb-3">"Best Glass Company" 2024</h3>
+            <p style="margin-bottom:-35px">-River Valley Democrat Gazette</p>
+            <!-- Award Badges -->
+            <div class="summary-badges mt-4" style="display: flex; justify-content: center; gap: 20px;">
+                <div data-tooltip="2024 Silver Winner" tooltip-position="top">
+                    <img src="assets/img/awards/2021.png" alt="2024 Silver Winner Badge">
+                </div>
+                <div data-tooltip="2023 Silver Winner" tooltip-position="top">
+                    <img src="assets/img/awards/2023.png" alt="2023 Silver Winner Badge">
+                </div>
+                <div data-tooltip="2021 Bronze Winner" tooltip-position="top">
+                    <img src="assets/img/awards/2024.png" alt="2021 Bronze Winner Badge">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Portfolio Grid-->
     <section class="page-section bg-light" id="portfolio">
@@ -256,10 +278,10 @@
         </div>
     </section>
 
-    <!-- License Banner
+    <!-- Best in River Valley Banner
     <section class="py-4 text-white text-center" style="background-color: #8D0000;">
         <div class="container">
-            <h3 class="mb-3">Residential Builder Contractor Licensed in Arkansas</h3>
+            <h3 class="mb-3">Nominated Best Glass Company 2024</h3>
             <div class="row justify-content-center">
                 <div class="col-md-4 offset-md-2 d-flex justify-content-right">
                     <p class="mb-0">License #: 0365271125</p>
@@ -272,8 +294,21 @@
     </section> -->
 
 
+    <style>
+        .license-banner {
+            background-image: url("assets/img/map-image.png");
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
     <!-- License Banner -->
-    <section class="py-4 text-white text-center" style="background-color: #8D0000;">
+    <section class="py-4 text-white text-center license-banner">
         <div class="container">
             <h3 class="mb-3">Residential Builder Contractor Licensed in Arkansas</h3>
             <div class="row justify-content-center">
@@ -286,8 +321,6 @@
             </div>
         </div>
     </section>
-
-
 
 
     <!-- Team Section -->
