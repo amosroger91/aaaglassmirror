@@ -359,7 +359,7 @@
                 <!-- Submit success message-->
                 <div class="d-none" id="submitSuccessMessage">
                     <div class="text-center text-white mb-3">
-                        <div class="fw-bolder">Your message has been sent!</div>
+                        <div class="fw-bolder">Thank you for your message! We'll be in touch</div>
                     </div>
                 </div>
                 <!-- Submit error message-->
@@ -470,8 +470,11 @@
     </footer>
     <!-- Portfolio Modals-->
 
+
+
     <!-- Portfolio item modal popup-->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true"
+        style="max-height: 97vh;">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="close-modal" data-bs-dismiss="modal"><i class="fas fa-xmark "></i></div>
@@ -482,8 +485,9 @@
                                 <!-- Project details-->
                                 <h2 class="text-uppercase">Frameless Showers</h2>
 
-                                <!-- Full-size image area -->
-                                <div id="expanded-image-container" class="mb-4">
+                                <!-- Full-size image area (hidden initially) -->
+                                <div id="expanded-image-container">
+                                    <span id="close-expanded-image">&times;</span>
                                     <img id="expanded-image" class="img-fluid rounded" src="">
                                 </div>
 
@@ -507,45 +511,7 @@
                                     <!-- Add more images here -->
                                 </div>
 
-                                <!-- Photo Gallery Grid -->
-                                <div class="row">
-                                    <!-- Image 1 -->
-                                    <div class="col-md-4 mb-4">
-                                        <img class="img-fluid rounded gallery-image"
-                                            src="assets/img/shower/frameless/4.jpeg" alt="Frameless Shower 1">
-                                    </div>
-                                    <!-- Image 2 -->
-                                    <div class="col-md-4 mb-4">
-                                        <img class="img-fluid rounded gallery-image"
-                                            src="assets/img/shower/frameless/5.jpeg" alt="Frameless Shower 2">
-                                    </div>
-                                    <!-- Image 3 -->
-                                    <div class="col-md-4 mb-4">
-                                        <img class="img-fluid rounded gallery-image"
-                                            src="assets/img/shower/frameless/6.jpeg" alt="Frameless Shower 3">
-                                    </div>
-                                    <!-- Add more images here -->
-                                </div>
-
-                                <!-- Photo Gallery Grid -->
-                                <div class="row">
-                                    <!-- Image 1 -->
-                                    <div class="col-md-4 mb-4">
-                                        <img class="img-fluid rounded gallery-image"
-                                            src="assets/img/shower/frameless/7.jpeg" alt="Frameless Shower 1">
-                                    </div>
-                                    <!-- Image 2 -->
-                                    <div class="col-md-4 mb-4">
-                                        <img class="img-fluid rounded gallery-image"
-                                            src="assets/img/shower/frameless/8.jpeg" alt="Frameless Shower 2">
-                                    </div>
-                                    <!-- Image 3 -->
-                                    <div class="col-md-4 mb-4">
-                                        <img class="img-fluid rounded gallery-image"
-                                            src="assets/img/shower/frameless/9.jpeg" alt="Frameless Shower 3">
-                                    </div>
-                                    <!-- Add more images here -->
-                                </div>
+                                <!-- Additional photo gallery grids here... -->
 
                                 <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
                                     type="button">
@@ -784,29 +750,8 @@
         </div>
     </div> -->
 
-    <script>
-        // JavaScript to handle image click and display in modal
-        const galleryImages = document.querySelectorAll('.gallery-image');
-        const expandedImageContainer = document.getElementById('expanded-image-container');
-        const expandedImage = document.getElementById('expanded-image');
-
-        galleryImages.forEach(image => {
-            image.addEventListener('click', () => {
-                const clickedImageSrc = image.src;
-                expandedImageContainer.style.display = 'block'; // Show the expanded image container
-                expandedImage.src = clickedImageSrc; // Set the clicked image as the expanded image
-            });
-        });
-    </script>
 
 
-    <script>
-        // Automatically show the modal when the page loads
-        document.addEventListener("DOMContentLoaded", function () {
-            var modal = new bootstrap.Modal(document.getElementById('constructionModal'));
-            modal.show();
-        });
-    </script>
 
     <script>
         // Function to set a cookie with a specific expiration time in minutes
@@ -862,6 +807,48 @@
             makeApiRequest();
         };
 
+    </script>
+
+    <script>
+        const galleryImages = document.querySelectorAll('.gallery-image');
+        const expandedImageContainer = document.getElementById('expanded-image-container');
+        const expandedImage = document.getElementById('expanded-image');
+        const closeExpandedImage = document.getElementById('close-expanded-image');
+
+        // Function to open the image in full-screen mode
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
+                const clickedImageSrc = image.src;
+                expandedImage.src = clickedImageSrc;
+                expandedImageContainer.style.display = 'flex'; // Show the expanded image container
+            });
+        });
+
+        // Close the expanded image when the close button is clicked
+        closeExpandedImage.addEventListener('click', () => {
+            expandedImageContainer.style.display = 'none'; // Hide the expanded image container
+            expandedImage.src = ''; // Clear the expanded image source
+        });
+
+        // Close the expanded image when the image itself is clicked (toggle)
+        expandedImage.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent click event from bubbling up to the document
+            expandedImageContainer.style.display = 'none'; // Hide the expanded image container
+            expandedImage.src = ''; // Clear the expanded image source
+        });
+
+        // Close the expanded image when clicking anywhere outside the image or close button
+        document.addEventListener('click', (event) => {
+            if (!expandedImageContainer.contains(event.target)) {
+                expandedImageContainer.style.display = 'none'; // Hide the expanded image container
+                expandedImage.src = ''; // Clear the expanded image source
+            }
+        });
+
+        // Prevent the click on the expanded image container or close button from closing the modal
+        expandedImageContainer.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent the event from reaching the document click handler
+        });
     </script>
 </body>
 

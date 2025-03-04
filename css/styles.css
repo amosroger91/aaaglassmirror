@@ -13281,3 +13281,58 @@ section#contact form#contactForm :-ms-input-placeholder {
     /* Larger font for desktop */
   }
 }
+
+/* Zoom effect on hover */
+.gallery-image {
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.1);
+  /* Slight zoom effect */
+}
+
+/* Styling for the expanded image container */
+#expanded-image-container {
+  position: fixed;
+  /* Makes the image overlay on top of everything */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  /* Semi-transparent black background */
+  display: none;
+  /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+  /* Ensure it's on top of other content */
+}
+
+/* Styling for the expanded image */
+#expanded-image {
+  max-width: 90%;
+  /* Limit the max width */
+  max-height: 90%;
+  /* Limit the max height */
+  object-fit: contain;
+  /* Ensure the image retains its aspect ratio */
+}
+
+/* Close button style */
+#close-expanded-image {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  z-index: 1060;
+  /* Close button should be above the image */
+}
+
+/* Optional: Smooth transition for the modal */
+#expanded-image-container {
+  transition: all 0.3s ease-in-out;
+}
