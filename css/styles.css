@@ -12836,7 +12836,7 @@ header.masthead .masthead-heading {
 }
 
 #portfolio .portfolio-item .portfolio-link:hover .portfolio-hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 #portfolio .portfolio-item .portfolio-caption {
