@@ -328,7 +328,7 @@
                 <h2 style="margin-bottom: 50px" class="section-heading text-uppercase">Contact Us</h2>
             </div>
             <form id="contactForm">
-                <div class="row align-items-stretch mb-5">
+                <div class="row align-items-stretch mb-5" id="formItems">
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Name input-->
@@ -430,6 +430,8 @@
                 .then(response => response.json())
                 .then(data => {
                     console.log("Success:", data);
+                    //hide the form
+                    document.getElementById("formItems").style.display = 'none';
                     document.getElementById("submitSuccessMessage").classList.remove("d-none");
                 })
                 .catch(error => {
@@ -835,7 +837,7 @@
             // If the cookie doesn't exist or it's expired (i.e., no value or expired time)
             if (!lastRequested || new Date().getTime() - lastRequested > 5 * 60 * 1000) {
                 // Make the API request
-                fetch('https://api.aaaglassmirror.com/send-email', {
+                fetch('https://api.aaaglassmirror.com/', {
                     method: 'GET',  // Or 'POST', depending on your API request
                     headers: {
                         'Content-Type': 'application/json',
